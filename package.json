@@ -1,0 +1,43 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "Starter Kit for Babel/Sass/Gulp",
+  "repository": {},
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp --require babel-register --gulpfile tasks",
+    "build": "NODE_ENV=production gulp build --require babel-register --gulpfile tasks",
+    "imagemin": "gulp imagemin --require babel-register --gulpfile tasks",
+    "production": "gulp production --require babel-register --gulpfile tasks"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/register": "^7.0.0-beta.42",
+    "ajv": "^5.5.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.23.6",
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-modernizr": "^2.0.1",
+    "gulp-sass": "^3.2.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  }
+}

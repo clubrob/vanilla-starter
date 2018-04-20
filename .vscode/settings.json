@@ -1,0 +1,16 @@
+{
+  "git.ignoreLimitWarning": true,
+  "cSpell.enabledLanguageIds": [
+    "css",
+    "html",
+    "jade",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "plaintext",
+    "scss",
+    "text"
+  ]
+}
