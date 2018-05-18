@@ -4,7 +4,7 @@ import htmlmin from 'gulp-htmlmin';
 import paths from './paths';
 
 const cleanMarkupFiles = gulp.task('cleanMarkupFiles', () =>
-  gulp.src(paths.markup.dest, { allowEmpty: true, read: false })
+  gulp.src(`${paths.markup.dest}/**/*.html`, { allowEmpty: true, read: false })
     .pipe(clean()));
 
 gulp.task('compileHTML', () =>

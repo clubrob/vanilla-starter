@@ -14,14 +14,9 @@ const paths = {
     src: 'src/markup/**/*.html',
     dest: 'dist',
   },
-  svg: {
-    root: 'src/images/svg',
-    src: 'src/images/svg/**/*.svg',
-    dest: 'dist/images',
-  },
   images: {
     root: 'src/images',
-    src: 'src/images/*.jpg',
+    src: 'src/images/**/*.+(png|jpg|gif|svg)',
     dest: 'dist/images',
   },
   node: {
