@@ -1,10 +1,8 @@
 # vanilla-starter
 
-> Simple web starter kit using Gulp 4/Babel/Sass.
+> Simple web starter kit using Gulp 4/Webpack/PostCSS.
 
 ## Build Setup
-
-Gulp tasks are separated into ES6 modules in the /tasks folder and processed on the fly through `babel-register`.
 
 ```bash
   # install dependencies
@@ -14,15 +12,9 @@ Gulp tasks are separated into ES6 modules in the /tasks folder and processed on 
 ### npm scripts
 
 ```bash
-# browser-sync serves /dist folder at localhost:3000
-npm run dev
+# browser-sync serves /www folder at localhost:5500
+npm run watch
 
-# package dist for production
-npm run production
-
-# delete /dist
-npm run clean
-
-# compress /dist/images files
-npm run imagemin
+# package www for production
+npm run build
 ```

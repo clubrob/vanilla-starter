@@ -5,41 +5,33 @@
   "repository": {},
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp dev --require babel-register --gulpfile tasks",
-    "imagemin": "gulp imagemin --require babel-register --gulpfile tasks",
-    "production": "gulp production --require babel-register --gulpfile tasks",
-    "clean": "gulp clean --require babel-register --gulpfile tasks"
+    "watch": "gulp",
+    "build": "gulp prod"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/register": "^7.0.0-beta.49",
-    "ajv": "^5.5.2",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-preset-env": "^1.7.0",
+    "autoprefixer": "^9.4.4",
+    "babel-core": "^6.26.3",
     "babel-register": "^6.26.0",
-    "browser-sync": "^2.24.4",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.12.0",
+    "browser-sync": "^2.24.6",
+    "del": "^3.0.0",
+    "dotenv": "^6.2.0",
     "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^8.0.0-beta.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-modernizr": "^2.0.4",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0"
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-postcss": "^8.0.0",
+    "gulp-uglify-es": "^1.0.4",
+    "html-minifier": "^3.5.21",
+    "postcss": "^7.0.8",
+    "postcss-color-function": "^4.0.1",
+    "postcss-font-magician": "^2.2.1",
+    "postcss-import": "^12.0.1",
+    "precss": "^4.0.0",
+    "webpack-stream": "^5.1.1"
   },
   "dependencies": {
-    "normalize.css": "^8.0.0"
+    "minireset.css": "0.0.3"
   }
 }
