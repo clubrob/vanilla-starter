@@ -15,7 +15,7 @@ const csso = require('gulp-csso');
 const terser = require('gulp-uglify-es').default;
 const webpackStream = require('webpack-stream');
 // Image processing modules
-const imagemin = require('gulp-imagemin');
+const responsive = require('gulp-responsive');
 // Font processing modules
 // Dev browser modules
 const browser = require('browser-sync').create();
@@ -83,7 +83,7 @@ gulp.task('bundleCSS', () =>
 
 gulp.task('cleanHTML', () =>
   gulp
-    .src(`${sourceDirectory}/views/*.html`)
+    .src(`${sourceDirectory}/views/**/*.html`)
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(`${productionDirectory}`))
     .pipe(browser.stream())
@@ -91,16 +91,26 @@ gulp.task('cleanHTML', () =>
 
 gulp.task('cleanImages', () =>
   gulp
-    .src(`${sourceDirectory}/images/*`)
-    .pipe(imagemin())
+    .src(`${sourceDirectory}/images/**/*.{jpg,png,svg}`)
+    .pipe(
+      responsive({
+        /* rules */
+        '*.jpg': [
+          {
+            quality: 60,
+            progressive: true,
+            withMetadata: false,
+          },
+        ],
+      })
+    )
     .pipe(gulp.dest(`${productionDirectory}/assets/images`))
     .pipe(browser.stream())
 );
 
 gulp.task('cleanFonts', () =>
   gulp
-    .src(`${sourceDirectory}/fonts/*`)
-    .pipe(imagemin())
+    .src(`${sourceDirectory}/fonts/**/*.*`)
     .pipe(gulp.dest(`${productionDirectory}/assets/fonts`))
     .pipe(browser.stream())
 );
@@ -121,13 +131,28 @@ gulp.task(
       gulp.watch(`${sourceDirectory}/css/**/*.css`, gulp.series('bundleCSS'));
       gulp.watch(`${sourceDirectory}/css/**/*.pcss`, gulp.series('bundleCSS'));
       gulp.watch(`${sourceDirectory}/js/**/*.js`, gulp.series('bundleJSDev'));
-      gulp.watch(`${sourceDirectory}/views/*.html`, gulp.series('cleanHTML'));
-      gulp.watch(`${sourceDirectory}/images/*`, gulp.series('cleanImages'));
-      gulp.watch(`${sourceDirectory}/fonts/*`, gulp.series('cleanFonts'));
+      gulp.watch(
+        `${sourceDirectory}/views/**/*.html`,
+        gulp.series('cleanHTML')
+      );
+      gulp.watch(
+        `${sourceDirectory}/images/**/*.{jpg,png,svg}`,
+        gulp.series('cleanImages')
+      );
+      gulp.watch(`${sourceDirectory}/fonts/**/*.*`, gulp.series('cleanFonts'));
     }
   )
 );
 
 gulp.task('default', gulp.series('clean:production', 'serve'));
-gulp.task('build', gulp.parallel('bundleCSS', 'bundleJS', 'cleanHTML', 'cleanImages', 'cleanFonts'));
+gulp.task(
+  'build',
+  gulp.parallel(
+    'bundleCSS',
+    'bundleJS',
+    'cleanHTML',
+    'cleanImages',
+    'cleanFonts'
+  )
+);
 gulp.task('prod', gulp.series('clean:production', 'build'));
