@@ -15,7 +15,6 @@ const csso = require('gulp-csso');
 const terser = require('gulp-uglify-es').default;
 const webpackStream = require('webpack-stream');
 // Image processing modules
-const responsive = require('gulp-responsive');
 // Font processing modules
 // Dev browser modules
 const browser = require('browser-sync').create();
@@ -92,18 +91,6 @@ gulp.task('cleanHTML', () =>
 gulp.task('cleanImages', () =>
   gulp
     .src(`${sourceDirectory}/images/**/*.{jpg,png,svg}`)
-    .pipe(
-      responsive({
-        /* rules */
-        '*.jpg': [
-          {
-            quality: 60,
-            progressive: true,
-            withMetadata: false,
-          },
-        ],
-      })
-    )
     .pipe(gulp.dest(`${productionDirectory}/assets/images`))
     .pipe(browser.stream())
 );
