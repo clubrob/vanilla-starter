@@ -13,7 +13,7 @@
 
 ```bash
 # browser-sync serves /www folder at localhost:5500
-npm run watch
+npm run dev
 
 # package www for production
 npm run build

@@ -15,6 +15,7 @@ const csso = require('gulp-csso');
 const terser = require('gulp-uglify-es').default;
 const webpackStream = require('webpack-stream');
 // Image processing modules
+// const responsive = require('gulp-responsive');
 // Font processing modules
 // Dev browser modules
 const browser = require('browser-sync').create();
